@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 568931495
     locked: 0
+  - name: Paths
+    uniqueID: 127949865
+    locked: 0
   - name: Player
     uniqueID: 3428695701
     locked: 0
