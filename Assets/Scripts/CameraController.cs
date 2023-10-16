@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    
     public Transform target;
     public Vector2 minPosition;
     public Vector2 maxPosition;
