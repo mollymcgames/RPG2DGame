@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //multiply by the speed and time to add speed and time into it 
-        myRB.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;   //preset axis to use in unity to pull from the left and right buttons for keys don't need deltatime
+        myRB.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * speed;   //don't need to use normalized if you don't want to
 
         myAnim.SetFloat("moveX", myRB.velocity.x);
         myAnim.SetFloat("moveY", myRB.velocity.y);
