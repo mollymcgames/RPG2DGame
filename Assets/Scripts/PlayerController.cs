@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Animator myAnim;
 
     [SerializeField]   //keep the variable private but editable
-    private float speed;  //set the player speed
+    private float speed =0f;  //set the player speed
 
     // Start is called before the first frame update
     void Start()

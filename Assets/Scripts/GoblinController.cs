@@ -8,11 +8,11 @@ public class GoblinController : MonoBehaviour
     private Transform target;
 
     [SerializeField]
-    private float speed;
+    private float speed = 0f;
     [SerializeField]
-    private float maxRange;
+    private float maxRange = 0f;
     [SerializeField]
-    private float minRange;
+    private float minRange = 0f;
 
     // Start is called before the first frame update
     void Start()
