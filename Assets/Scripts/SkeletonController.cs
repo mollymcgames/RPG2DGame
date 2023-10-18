@@ -9,7 +9,9 @@ public class SkeletonController : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private float range;
+    private float maxRange;
+    [SerializeField]
+    private float minRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,21 @@ public class SkeletonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FollowPlayer();
+        if (Vector3.Distance(transform.position, target.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange)
+        {
+            FollowPlayer();
+        }
+        else
+        {
+            myAnim.SetBool("isMoving", false);
+        }
     }
 
     public void FollowPlayer()
     {
         myAnim.SetBool("isMoving", true);
+        myAnim.SetFloat("moveX", target.position.x - transform.position.x);
+        myAnim.SetFloat("moveY", target.position.y - transform.position.y);        
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 }
