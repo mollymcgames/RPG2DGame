@@ -6,6 +6,7 @@ public class SkeletonController : MonoBehaviour
 {
     private Animator myAnim;
     private Transform target;
+    
     [SerializeField]
     private float speed = 0f;
     [SerializeField]
