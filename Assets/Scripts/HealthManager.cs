@@ -11,9 +11,13 @@ public class HealthManager : MonoBehaviour
     public float waitToLoad = 1f; //modify this to change the time it takes to reload the scene
     public int maxHealth;
     // Start is called before the first frame update
+    private bool flashActive; //whenever the player gets hit, the player flashes
+    [SerializeField]
+    private float flashLength = 0.5f; //how long the player flashes for when hit
+    private SpriteRenderer playerSprite; //the sprite renderer for the player
     void Start()
     {
-        
+        playerSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -26,13 +30,27 @@ public class HealthManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name); //load the current scene
             }
-        }        
-        
+        }
+
+        if(flashActive)
+        {
+            StartCoroutine(FlashPlayer());
+        }
+    }
+
+    IEnumerator FlashPlayer()
+    {
+        flashActive = false;
+        playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f); //set the alpha to 0
+        yield return new WaitForSeconds(flashLength * 0.2f); //multiply by 0.2f to make the flash shorter
+        playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f); //set the alpha to 1
     }
 
     public void HurtPlayer(int damageGiven)
     {
         currentHealth -= damageGiven;
+        flashActive = true;
+
         Debug.Log("current health" + currentHealth);
 
         if (currentHealth <= 0)
