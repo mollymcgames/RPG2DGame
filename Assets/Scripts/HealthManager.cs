@@ -8,13 +8,17 @@ public class HealthManager : MonoBehaviour
     public int currentHealth;
 
     public bool reloading;
-    public float waitToLoad = 1f; //modify this to change the time it takes to reload the scene
+    public float waitToLoad = 2f; //modify this to change the time it takes to reload the scene
     public int maxHealth;
     // Start is called before the first frame update
     private bool flashActive; //whenever the player gets hit, the player flashes
     [SerializeField]
     private float flashLength = 0.5f; //how long the player flashes for when hit
     private SpriteRenderer playerSprite; //the sprite renderer for the player
+
+    [SerializeField]
+
+    private AudioSource hurtSound;
     void Start()
     {
         playerSprite = GetComponent<SpriteRenderer>();
@@ -59,8 +63,15 @@ public class HealthManager : MonoBehaviour
         } if (currentHealth == 0 || currentHealth < 0)
         {
             // gameObject.SetActive(false);
-            SceneManager.LoadScene("Test");
+            Invoke("ReloadScene", 2f); // Invoke the ReloadScene method after a delay of 2 seconds
+
+            // SceneManager.LoadScene("Test");
         }
         
+    }
+    // Add this method to reload the scene
+    void ReloadScene()
+    {
+        SceneManager.LoadScene("Test");
     }
 }

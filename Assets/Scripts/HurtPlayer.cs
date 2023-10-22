@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class HurtPlayer : MonoBehaviour
 {
-    public float waitToHurt = 1f; //modify this to change the time it takes to reload the scene
+    public float waitToHurt = 2f; //modify this to change the time it takes to reload the scene
     public bool isTouching;
     private HealthManager healthMan;
     [SerializeField]
     private int damageToGive = 10;
 
+    [SerializeField]
+    private AudioSource hurtSound;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,8 @@ public class HurtPlayer : MonoBehaviour
             {
                 Debug.Log("Player hit");
                 healthMan.HurtPlayer(damageToGive);
-                waitToHurt = 1f;
+                waitToHurt = 2f;
+                // hurtSound.Play(); //Play the hurt sound effect for dying here
                 // other.gameObject.SetActive(false);
 
                 // SceneManager.LoadScene("Test")
@@ -51,6 +54,7 @@ public class HurtPlayer : MonoBehaviour
         {
             Debug.Log("Player hit");
             other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
+            hurtSound.Play(); //Play the hurt sound effect 
             // other.gameObject.SetActive(false);
 
             // SceneManager.LoadScene("Test")
