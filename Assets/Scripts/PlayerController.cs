@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]   //keep the variable private but editable
     private float speed =0f;  //set the player speed
 
+    private float attackTime = 0.3f;
+    private float attackTimeCounter = 0.3f;
+    private bool isAttacking;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,24 @@ public class PlayerController : MonoBehaviour
             myAnim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
             myAnim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
 
+        }
+
+        if(isAttacking)
+        {
+            myRB.velocity = Vector2.zero;  //not moving when attacking
+            attackTimeCounter -= Time.deltaTime;
+            if(attackTimeCounter <= 0)
+            {
+                myAnim.SetBool("isAttacking", false);
+                isAttacking = false;
+            }
+
+        }
+        if(Input.GetMouseButton(0)) //check for left click
+        {
+            attackTimeCounter = attackTime; //make sure when we swing sword, it's not instant
+            myAnim.SetBool("isAttacking", true);
+            isAttacking = true;
         }
     }
 }
