@@ -59,11 +59,11 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
         }
     }
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("NPC"))
-            {
-                Debug.Log("Player is interacting with the NPC");
-            }
-        }
+        // private void OnCollisionEnter2D(Collision2D other)
+        // {
+        //     if (other.gameObject.CompareTag("NPC"))
+        //     {
+        //         Debug.Log("Player is interacting with the NPC");
+        //     }
+        // }
 }
