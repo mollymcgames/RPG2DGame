@@ -8,6 +8,7 @@ Enjoy exploring a 2D world! Use the following keys to navigate:
 - ← (Left Arrow) to move left
 - → (Right Arrow) to move right
 
+Click the mouse to attack enemies!
 
 <div style="display:flex; justify-content:center;">
     <div style="flex:50%; text-align:center; padding-right: 10px;">
@@ -41,6 +42,12 @@ and maxPosition(x and y)
 
 17/10/23
 - In order to use Prefab drag into scene and set the New Min Position and New Max Position from the position of the camera(X and Y position)
+
+26/10/23
+- Bug #1: When running the game set the Game aspect ratio to (1920 x 2080)
+
+26/10/23
+- Bug #1: Bug fixed as made one canvas object
 
 
 Initial world looked like this. Note no healthbar or enemies:
