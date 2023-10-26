@@ -11,8 +11,8 @@ public class HurtPlayer : MonoBehaviour
     [SerializeField]
     private int damageToGive = 10;
 
-    [SerializeField]
-    private AudioSource hurtSound;
+    // [SerializeField]
+    // private AudioSource hurtSound;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class HurtPlayer : MonoBehaviour
         {
             Debug.Log("Player hit");
             other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
-            hurtSound.Play(); //Play the hurt sound effect 
+            // hurtSound.Play(); //Play the hurt sound effect 
             // other.gameObject.SetActive(false);
 
             // SceneManager.LoadScene("Test")
