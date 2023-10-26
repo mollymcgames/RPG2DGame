@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -57,4 +59,11 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
         }
     }
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("NPC"))
+            {
+                Debug.Log("Player is interacting with the NPC");
+            }
+        }
 }
