@@ -7,9 +7,12 @@ public class NPCController : MonoBehaviour
     public Canvas canvas; // Reference to the UI canvas
     public GameObject dialogueBox; // Reference to the UI dialogue box
     public TMP_Text dialogueText; // Reference to the UI text box
-    public string npcMessage; // The NPC's message
+    // public string npcMessage; // The NPC's message
 
     bool playerInRange; // Flag to check if the player is within range
+
+    //set the NPC's message directly in the script 
+    string npcMessage = "Hello Buddy!";
 
     void Update()
     {
