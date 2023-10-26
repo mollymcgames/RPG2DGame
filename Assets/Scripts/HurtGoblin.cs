@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HurtGoblin : MonoBehaviour
 {
+    public int damageToGive = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class HurtGoblin : MonoBehaviour
     {
         if(other.tag == "Goblin")
         {
-            Destroy(other.gameObject);
+            EnemyHealthManager enemyHealthManager = other.gameObject.GetComponent<EnemyHealthManager>();
+            enemyHealthManager.HurtEnemy(damageToGive);
         }
     }
 }
