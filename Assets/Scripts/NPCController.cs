@@ -4,6 +4,7 @@ using TMPro;
 
 public class NPCController : MonoBehaviour
 {
+    public Canvas canvas; // Reference to the UI canvas
     public GameObject dialogueBox; // Reference to the UI dialogue box
     public TMP_Text dialogueText; // Reference to the UI text box
     public string npcMessage; // The NPC's message
@@ -12,9 +13,11 @@ public class NPCController : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange) // Check for player interaction key (E key in this case)
+        if (playerInRange) // Check for player interaction 
         {
             Debug.Log("Message should appear");
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position); // Get the NPC's position on the screen
+            dialogueBox.transform.position = screenPosition + new Vector3(0, 150, 0); // Set the dialogue box's position to be above the NPC
             DisplayDialogue(npcMessage); // Display the NPC's message
         }
     }
