@@ -44,6 +44,7 @@ public class GoblinController : MonoBehaviour
     }
 
 
+    //knockback makes enemies easier to kill
     public void OnTriggerEnter2D(Collider2D other)
     {
         //work out difference between weapon transform and the enemy transform

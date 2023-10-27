@@ -41,6 +41,7 @@ public class SkeletonController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
+    //knockback makes enemies easier to kill
     public void OnTriggerEnter2D(Collider2D other)
     {
         //work out difference between weapon transform and the enemy transform
