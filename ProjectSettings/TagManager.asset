@@ -7,6 +7,7 @@ TagManager:
   - Goblin
   - Skeleton
   - NPC
+  - DamageArea
   layers:
   - Default
   - TransparentFX
