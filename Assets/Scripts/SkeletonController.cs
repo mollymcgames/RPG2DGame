@@ -40,4 +40,14 @@ public class SkeletonController : MonoBehaviour
         myAnim.SetFloat("moveY", target.position.y - transform.position.y);        
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        //work out difference between weapon transform and the enemy transform
+        if (other.gameObject.tag == "DamageArea")
+        {
+            Vector2 difference = transform.position - other.transform.position; //enemy position - weapon position
+            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
+        }
+    }    
 }
