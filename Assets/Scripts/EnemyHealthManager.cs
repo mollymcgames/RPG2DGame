@@ -6,6 +6,7 @@ public class EnemyHealthManager : MonoBehaviour
 {
     public int enemyHealth;
     public int maxHealth;
+    public PlayerStats thePlayerStats;
 
 
     private bool flashActive; //whenever the player gets hit, the player flashes
@@ -20,6 +21,7 @@ public class EnemyHealthManager : MonoBehaviour
     void Start()
     {
         goblinSprite = GetComponent<SpriteRenderer>();
+        thePlayerStats = FindFirstObjectByType<PlayerStats>();
 
     }
 
@@ -47,6 +49,7 @@ public class EnemyHealthManager : MonoBehaviour
         flashActive = true;
         if(enemyHealth <= 0)
         {
+            thePlayerStats.GainExperience(1000);
             Destroy(gameObject);
         }
     }

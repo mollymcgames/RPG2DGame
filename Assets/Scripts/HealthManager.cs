@@ -55,7 +55,7 @@ public class HealthManager : MonoBehaviour
         currentHealth -= damageGiven;
         flashActive = true;
 
-        Debug.Log("current health" + currentHealth);
+        // Debug.Log("current health" + currentHealth);
 
         if (currentHealth <= 0)
         {

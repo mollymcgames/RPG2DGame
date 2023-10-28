@@ -36,7 +36,7 @@ public class HurtPlayer : MonoBehaviour
             waitToHurt -= Time.deltaTime;
             if(waitToHurt <= 0)
             {
-                Debug.Log("Player hit");
+                // Debug.Log("Player hit");
                 healthMan.HurtPlayer(damageToGive);
                 waitToHurt = 2f;
                 // hurtSound.Play(); //Play the hurt sound effect for dying here
@@ -52,7 +52,7 @@ public class HurtPlayer : MonoBehaviour
     {
         if(other.collider.tag == "Player")
         {
-            Debug.Log("Player hit");
+            // Debug.Log("Player hit");
             other.gameObject.GetComponent<HealthManager>().HurtPlayer(damageToGive);
             // hurtSound.Play(); //Play the hurt sound effect 
             // other.gameObject.SetActive(false);

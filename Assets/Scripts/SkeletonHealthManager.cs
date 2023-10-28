@@ -6,6 +6,8 @@ public class SkeletonHealthManager : MonoBehaviour
 {
     public int skeletonHealth;
     public int maxHealth;
+    public PlayerStats thePlayerStats;
+
 
 
     private bool flashActive; //whenever the player gets hit, the player flashes
@@ -17,6 +19,7 @@ public class SkeletonHealthManager : MonoBehaviour
     void Start()
     {
         skeletonSprite = GetComponent<SpriteRenderer>();
+        thePlayerStats = FindFirstObjectByType<PlayerStats>();
 
     }
 
@@ -44,6 +47,7 @@ public class SkeletonHealthManager : MonoBehaviour
         flashActive = true;
         if(skeletonHealth <= 0)
         {
+            thePlayerStats.GainExperience(1000);
             Destroy(gameObject);
         }
     }
